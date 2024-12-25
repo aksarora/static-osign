@@ -31,7 +31,7 @@ const About: React.FC = () => {
             <li>
               <ParagraphMedium>
                 <strong>Security:</strong> We adhere to the highest standards of
-                data protection to ensure that our users' information is always
+                data protection to ensure that our users&apos; information is always
                 secure.
               </ParagraphMedium>
             </li>

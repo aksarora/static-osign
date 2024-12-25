@@ -12,7 +12,7 @@ const Terms = () => {
           <ParagraphMedium>
             Users must ensure accurate document uploads and signature
             applications. Aadhar OTPs must be entered exclusively on our
-            official partners' platforms: Capricorn.com or C-DAC.in.
+            official partners&apos; platforms: Capricorn.com or C-DAC.in.
           </ParagraphMedium>
         </HeadingLevel>
 

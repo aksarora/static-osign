@@ -32,7 +32,7 @@ const PaymentAndRefundPolicy: React.FC = () => {
         </HeadingLevel>
         <ParagraphMedium>
           In the case of failed transactions, payments are generally refunded by
-          the bank within 5-7 working days. If it's believed the payment has
+          the bank within 5-7 working days. If it&apos;s believed the payment has
           reached us erroneously, contact us with transaction details at{' '}
           <a href="mailto:support@otpsign.com">support@otpsign.com</a>.
         </ParagraphMedium>
