@@ -3,11 +3,20 @@ import {Heading, HeadingLevel} from 'baseui/heading';
 import {ParagraphMedium} from 'baseui/typography';
 import {Wrapper} from '../components/wrapper';
 import {Container} from '../components/container';
+import {Table} from 'baseui/table';
+import {products} from '../data/products';
 
 const ProductsAndServices: React.FC = () => {
   return (
     <Wrapper>
       <Container>
+        <HeadingLevel>
+          <Heading>Products and Services</Heading>
+          <ParagraphMedium>
+            Expected pricing for various products and services.
+          </ParagraphMedium>
+          <Table columns={products[0]} data={products.slice(1)} />
+        </HeadingLevel>
         <HeadingLevel>
           <Heading>Digital Signature Services</Heading>
           <ul>
