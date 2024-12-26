@@ -8,6 +8,7 @@ import {useStyletron} from 'baseui';
 import {StyledLink} from 'baseui/link';
 import {usePathname} from 'next/navigation';
 import {links} from '../data/links';
+import Head from 'next/head';
 
 interface WrapperProps {
   children: React.ReactNode;
@@ -24,6 +25,9 @@ export const Wrapper: React.FC<WrapperProps> = ({children}) => {
   const lastPath = paths.splice(-1, 1)[0];
   return (
     <div>
+      <Head>
+        <title>{lastPath?.title}</title>
+      </Head>
       <Header />
       <Container $verticalPadding={`${theme.sizing.scale800}`}>
         <Breadcrumbs>
