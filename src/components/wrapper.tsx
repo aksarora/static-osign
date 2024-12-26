@@ -9,6 +9,7 @@ import {StyledLink} from 'baseui/link';
 import {usePathname} from 'next/navigation';
 import {links} from '../data/links';
 import Head from 'next/head';
+import {LoginProvider} from '../context/login';
 
 interface WrapperProps {
   children: React.ReactNode;
@@ -24,7 +25,7 @@ export const Wrapper: React.FC<WrapperProps> = ({children}) => {
   paths.unshift({title: 'Home', url: '/'});
   const lastPath = paths.splice(-1, 1)[0];
   return (
-    <div>
+    <LoginProvider>
       <Head>
         <title>{`${lastPath?.title} | OTP Sign`}</title>
       </Head>
@@ -32,7 +33,7 @@ export const Wrapper: React.FC<WrapperProps> = ({children}) => {
       <Container $verticalPadding={`${theme.sizing.scale800}`}>
         <Breadcrumbs>
           {paths.map((path, index) => (
-            <StyledLink href={path?.url} key={path?.url}>
+            <StyledLink key={path?.url} href={path?.url}>
               {path?.title}
             </StyledLink>
           ))}
@@ -42,6 +43,6 @@ export const Wrapper: React.FC<WrapperProps> = ({children}) => {
       <main>{children}</main>
 
       <Footer />
-    </div>
+    </LoginProvider>
   );
 };

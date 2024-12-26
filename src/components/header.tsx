@@ -13,12 +13,23 @@ import {ListItem, ListItemLabel} from 'baseui/list';
 import {Container} from './container';
 import {links} from '../data/links';
 import Link from 'next/link';
+import {useLogin} from '../context/login';
 
 export const Header = () => {
   const [css, theme] = useStyletron();
   const [isOpen, setIsOpen] = useState(false);
+  const {initiateLogin, isLoggedIn, logoutUser} = useLogin();
+
   return (
-    <HeaderNavigation>
+    <HeaderNavigation
+      overrides={{
+        Root: {
+          style: {
+            backgroundColor: theme.colors.backgroundSecondary,
+          },
+        },
+      }}
+    >
       <Container $verticalPadding={theme.sizing.scale300}>
         <div
           className={css({
@@ -46,7 +57,8 @@ export const Header = () => {
                     className={css({
                       ...theme.typography.LabelMedium,
                       textDecoration: 'none',
-                      color: theme.colors.primary,
+                      color: theme.colors.contentPrimary,
+                      fontWeight: 'bold',
                     })}
                   >
                     OTP Sign
@@ -82,12 +94,33 @@ export const Header = () => {
 
           <StyledNavigationList $align={ALIGN.center} />
           <StyledNavigationList $align={ALIGN.right}>
-            <StyledNavigationItem>
-              <StyledLink href="/about">About us</StyledLink>
-            </StyledNavigationItem>
-            <StyledNavigationItem>
-              <StyledLink href="/contact-us">Contact Us</StyledLink>
-            </StyledNavigationItem>
+            {isLoggedIn ? (
+              <>
+                <StyledNavigationItem>
+                  <b>Welcome!</b>
+                </StyledNavigationItem>
+                <StyledNavigationItem>
+                  <StyledLink
+                    onClick={() => {
+                      logoutUser();
+                    }}
+                  >
+                    Logout
+                  </StyledLink>
+                </StyledNavigationItem>
+              </>
+            ) : (
+              <>
+                <StyledNavigationItem>
+                  <StyledLink onClick={() => initiateLogin(() => {})}>
+                    Login
+                  </StyledLink>
+                </StyledNavigationItem>
+                <StyledNavigationItem>
+                  <StyledLink href="/contact-us">Register</StyledLink>
+                </StyledNavigationItem>
+              </>
+            )}
           </StyledNavigationList>
         </div>
       </Container>
