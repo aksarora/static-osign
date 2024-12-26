@@ -59,6 +59,7 @@ export const Header = () => {
                       textDecoration: 'none',
                       color: theme.colors.contentPrimary,
                       fontWeight: 'bold',
+                      cursor: 'pointer',
                     })}
                   >
                     OTP Sign
@@ -84,7 +85,12 @@ export const Header = () => {
                 {links.map((link, index) => (
                   <ListItem key={index}>
                     <ListItemLabel>
-                      <StyledLink href={link.url}>{link.title}</StyledLink>
+                      <Link
+                        href={link.url}
+                        className={css({color: theme.colors.contentPrimary})}
+                      >
+                        {link.title}
+                      </Link>
                     </ListItemLabel>
                   </ListItem>
                 ))}
@@ -104,6 +110,7 @@ export const Header = () => {
                     onClick={() => {
                       logoutUser();
                     }}
+                    className={css({cursor: 'pointer'})}
                   >
                     Logout
                   </StyledLink>
@@ -112,12 +119,20 @@ export const Header = () => {
             ) : (
               <>
                 <StyledNavigationItem>
-                  <StyledLink onClick={() => initiateLogin(() => {})}>
+                  <StyledLink
+                    onClick={() => initiateLogin(() => {})}
+                    className={css({cursor: 'pointer'})}
+                  >
                     Login
                   </StyledLink>
                 </StyledNavigationItem>
                 <StyledNavigationItem>
-                  <StyledLink href="/contact-us">Register</StyledLink>
+                  <StyledLink
+                    href="/contact-us"
+                    className={css({cursor: 'pointer'})}
+                  >
+                    Register
+                  </StyledLink>
                 </StyledNavigationItem>
               </>
             )}

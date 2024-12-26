@@ -8,6 +8,7 @@ import {
   ParagraphSmall,
   ParagraphXSmall,
 } from 'baseui/typography';
+import Link from 'next/link';
 
 const Footer: React.FC = () => {
   const [css, theme] = useStyletron();
@@ -41,7 +42,7 @@ const Footer: React.FC = () => {
                   //  className={css({paddingBottom: theme.sizing.scale100})}
                 >
                   <ParagraphSmall color={theme.colors.contentInversePrimary}>
-                    <a
+                    <Link
                       href={link.url}
                       className={css({
                         color: theme.colors.contentInversePrimary,
@@ -52,7 +53,7 @@ const Footer: React.FC = () => {
                       })}
                     >
                       {link.title}
-                    </a>
+                    </Link>
                   </ParagraphSmall>
                 </li>
               ))}
