@@ -7,7 +7,10 @@ import {initializeApp} from 'firebase/app';
 const firebaseConfig = {
   apiKey: 'AIzaSyC4cVkfFPCIU_7_qtuRBKmK04k7ZLxKiB4',
   authDomain: 'refined-window-438515-p1.firebaseapp.com',
+  databaseURL:
+    'https://refined-window-438515-p1-default-rtdb.asia-southeast1.firebasedatabase.app',
   projectId: 'refined-window-438515-p1',
+  storageBucket: 'refined-window-438515-p1.firebasestorage.app',
   messagingSenderId: '812821469928',
   appId: '1:812821469928:web:ec67f4c19cfe7e490f475d',
 };
