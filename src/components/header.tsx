@@ -128,7 +128,7 @@ export const Header = () => {
                 </StyledNavigationItem>
                 <StyledNavigationItem>
                   <StyledLink
-                    href="/contact-us"
+                    onClick={() => initiateLogin(() => {})}
                     className={css({cursor: 'pointer'})}
                   >
                     Register
