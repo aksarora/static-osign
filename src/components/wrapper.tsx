@@ -26,7 +26,7 @@ export const Wrapper: React.FC<WrapperProps> = ({children}) => {
   return (
     <div>
       <Head>
-        <title>{lastPath?.title}</title>
+        <title>{`${lastPath?.title} | OTP Sign`}</title>
       </Head>
       <Header />
       <Container $verticalPadding={`${theme.sizing.scale800}`}>
